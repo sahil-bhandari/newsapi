@@ -45,7 +45,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
         holder.click(data.get(position), listener);
-        holder.tvCity.setText(data.get(position).getTitle());
+        holder.tvTitle.setText(data.get(position).getTitle());
         holder.tvDesc.setText(data.get(position).getDescription());
 
         String images = data.get(position).getUrlToImage();
@@ -69,13 +69,13 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView tvCity, tvDesc;
+        TextView tvTitle, tvDesc;
         ImageView background;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvCity = itemView.findViewById(R.id.city);
-            tvDesc = itemView.findViewById(R.id.hotel);
+            tvTitle = itemView.findViewById(R.id.title);
+            tvDesc = itemView.findViewById(R.id.content);
             background = itemView.findViewById(R.id.image);
         }
 

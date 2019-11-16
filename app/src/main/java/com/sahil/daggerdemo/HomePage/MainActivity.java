@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
@@ -37,7 +39,7 @@ public class MainActivity extends BaseApp implements HomeView {
     @Inject
     public NetworkingService service;
     HomeAdapter adapter;
-    int page = 0;
+    int page = 1;
     String category = "general";
     AppCompatSpinner spinner;
     List<String> category_list = new ArrayList<>();
@@ -156,6 +158,9 @@ public class MainActivity extends BaseApp implements HomeView {
                     }
                 });
         list.setAdapter(adapter);
+        final LayoutAnimationController controller = AnimationUtils.loadLayoutAnimation(MainActivity.this, R.anim.layout_animation_fall_down);
+        list.setLayoutAnimation(controller);
+        list.scheduleLayoutAnimation();
         getPageNumber(page);
     }
 
@@ -185,10 +190,7 @@ public class MainActivity extends BaseApp implements HomeView {
             @Override
             public void run() {
                 if(!online)
-                    Snackbar.make(findViewById(android.R.id.content), "Sorry, you're offline", Snackbar.LENGTH_LONG).show();
-                else{
-
-                }
+                    Snackbar.make(findViewById(android.R.id.content), "Sorry, can't connect to server. Please check your internet.", Snackbar.LENGTH_LONG).show();
             }
         });
     }

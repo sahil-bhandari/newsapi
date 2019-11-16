@@ -36,11 +36,9 @@ public class WebViewActivity extends AppCompatActivity {
 
     private void loadWeb() {
         ConnectivityManager cm = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
-
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
 
-        System.out.println("connection : " + isConnected);
 
         if (isConnected == true) {
             progress.setVisibility(View.VISIBLE);

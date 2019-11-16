@@ -4,26 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context=".HomePage.MainActivity">
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <androidx.appcompat.widget.AppCompatSpinner
+    <RelativeLayout
         android:layout_below="@id/toolbar"
+        android:id="@+id/llinear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="20dp"
-        android:textAlignment="center"
-        android:background="@color/colorAccent"
-        android:id="@+id/spinner"/>
+        android:orientation="horizontal">
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="20dp"
+            android:textAlignment="center"
+            android:background="@color/colorAccent"
+            android:id="@+id/spinner"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="125dp"
+            android:paddingBottom="5dp"
+            android:src="@drawable/ic_keyboard_arrow_down" />
+    </RelativeLayout>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/spinner"
+        android:layout_below="@id/llinear"
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layoutAnimation="@anim/layout_animation_fall_down"
         android:divider="#00000000"/>
 
     <ProgressBar
@@ -52,6 +70,7 @@
         android:layout_alignParentBottom="true"
         android:clickable="true"
         android:layout_margin="20dp"
+        android:visibility="gone"
         app:srcCompat="@drawable/ic_arrow_forward" />
 
 </RelativeLayout>
