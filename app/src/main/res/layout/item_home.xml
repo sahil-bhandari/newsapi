@@ -1,39 +1,51 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<androidx.cardview.widget.CardView
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="7dp">
-    <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:layout_margin="2dp"
+    app:cardCornerRadius="@dimen/cardview_compat_inset_shadow"
+    android:elevation="16dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:scaleType="centerCrop"
-            android:id="@+id/image"/>
+        android:layout_margin="7dp">
         <LinearLayout
+            android:background="@android:color/transparent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="7dp">
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:scaleType="centerCrop"
+                android:id="@+id/image"/>
             <TextView
+                android:padding="@dimen/cardview_default_radius"
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:text="Title"
-                android:textColor="#000"
-                android:textSize="18sp" />
+                tools:text="Post Title"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
             <TextView
-                android:id="@+id/content"
-                android:layout_width="match_parent"
+                android:padding="@dimen/cardview_default_radius"
+                android:id="@+id/body"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Content"
-                android:textColor="#555" />
+                tools:text="Lorem ipsum dolor sit amet consectetur adipiscing elit Lorem ipsum dolor sit amet consectetur adipiscing elit Lorem ipsum dolor sit amet consectetur adipiscing elit"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:textColor="#1A1A1A" />
         </LinearLayout>
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 </androidx.cardview.widget.CardView>
-</RelativeLayout>
